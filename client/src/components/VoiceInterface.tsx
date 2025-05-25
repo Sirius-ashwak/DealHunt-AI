@@ -106,7 +106,6 @@ export default function VoiceInterface({ onSearchComplete }: VoiceInterfaceProps
                   className="bg-neutral-200 text-neutral-700 px-4 py-2 rounded-lg text-sm hover:bg-neutral-300 transition-all"
                   onClick={() => {
                     stopListening();
-                    setTranscript('');
                     setStatus('Tap the microphone to start');
                     setPreference({ product: '', budget: '', delivery: '' });
                   }}
