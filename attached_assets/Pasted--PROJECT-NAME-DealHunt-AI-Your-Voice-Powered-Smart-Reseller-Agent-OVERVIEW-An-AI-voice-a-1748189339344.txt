@@ -1,0 +1,191 @@
+✅ PROJECT NAME:
+DealHunt AI – Your Voice-Powered Smart Reseller Agent
+
+🚀 OVERVIEW
+An AI voice agent that:
+
+Talks to you about your preferences (e.g., "I want sneakers under ₹10k, deliver in 2 days")
+
+Simulates/resolves voice calls with multiple sellers (mock data or real APIs)
+
+Compares all offers (price, delivery, ratings)
+
+📧 Sends you an email with Top 3 offers
+
+🗃️ Logs all seller data into Google Sheets (or mock CRM)
+
+🔧 TECH STACK
+Feature	Tech Used
+Voice AI Agent	OmniDimension
+Backend Logic	Webhook (Node.js or Replit endpoint)
+Email Integration	Email API (SendGrid / Mailjet / Gmail)
+Data Logging	Google Sheets API
+Visual Dashboard (Opt.)	React/Vite (optional front UI)
+Seller Calls (Mock)	Predefined seller JSON list
+
+🧠 HOW TO SET IT UP
+🔹 Step 1: Mock Reseller Offers
+Create a resellers.json:
+
+json
+Copy
+Edit
+[
+  {
+    "seller": "SneakerZone",
+    "price": 9500,
+    "delivery_days": 2,
+    "contact": "sneakerzone@email.com"
+  },
+  {
+    "seller": "HypeHub",
+    "price": 8999,
+    "delivery_days": 4,
+    "contact": "hypehub@email.com"
+  },
+  {
+    "seller": "KicksExpress",
+    "price": 10499,
+    "delivery_days": 1,
+    "contact": "kicksexpress@email.com"
+  }
+]
+🔹 Step 2: OmniDimension Prompt (Voice Agent)
+🧠 Sample Prompt:
+sql
+Copy
+Edit
+You are a shopping assistant helping users find the best deal on limited-edition sneakers. Ask the user their product preference and delivery urgency. Then check deals from resellers (SneakerZone, HypeHub, KicksExpress). Compare price and delivery days.
+
+At the end of the call:
+- Recommend the top 3 options
+- Send these to the user’s email
+- Log the full data to Google Sheets
+
+Trigger a POST webhook to https://your-webhook-url.com with the user's preference, all offers, and top 3 selections.
+🔹 Step 3: Webhook Backend (Node.js / Replit)
+Handles:
+
+Emailing top 3 options
+
+Logging full data to Google Sheets
+
+Want a ready-to-use Node.js Replit webhook? Let me know and I’ll generate one for you.
+
+🔹 Step 4: Google Sheets Logging
+Use:
+
+googleapis NPM package
+
+Create a Google Sheet with headers: User Name | Product | Seller | Price | Delivery Days | Contact | Timestamp
+
+🔹 Step 5: Email Sample (SendGrid/Mailjet)
+Subject: 🎉 Top 3 Sneaker Deals Just for You!
+
+Body:
+
+txt
+Copy
+Edit
+Hi [UserName],
+
+Here are the top 3 sneaker deals we found for you:
+
+1️⃣ SneakerZone – ₹9500 – 2 Day Delivery  
+2️⃣ HypeHub – ₹8999 – 4 Day Delivery  
+3️⃣ KicksExpress – ₹10499 – 1 Day Delivery
+
+Happy shopping!  
+– DealHunt AI 🤖  
+
+
+🚀 Advanced Features to Make DealHunt AI Stand Out:
+1. 🧑‍🎤 Conversational AI Personas
+Simulate different seller personalities (friendly, fast-talking, confused, etc.) using LLM prompts to make the conversations feel realistic and dynamic.
+
+Add seller profiles with photos, ratings, and trust scores.
+
+2. 📊 Dynamic Deal Visualizer (Live Dashboard)
+Real-time chart showing:
+
+💰 Prices across sellers
+
+🚚 Delivery times
+
+⭐ Ratings and trust score
+
+Use something like Recharts in React or Chart.js to render deal comparisons live.
+
+3. 📧 Smart Email Summary
+After the voice call, send a summary email to the user with:
+
+🥇 Top 3 ranked deals with reasons (e.g., "Fastest delivery under ₹1500")
+
+📈 A chart image embedded (use chart snapshot)
+
+🧠 AI Recommendation summary (e.g., “We recommend SneakerVault due to lowest price + 2-day shipping”)
+
+4. 📥 PDF Export of Deals
+Auto-generate a downloadable PDF of the full comparison including:
+
+Seller name
+
+Price
+
+Delivery ETA
+
+Call transcript
+
+AI recommendation
+
+5. 🔊 User Voice Input: "What’s my priority?"
+Let the user say their preference (e.g., “I care more about fast delivery” or “price under ₹2000”).
+
+Use this to re-rank the deals dynamically and give a personalized recommendation.
+
+6. 📞 Voice Memory & Replay
+After each call, let the user replay parts of the seller’s response.
+
+“What did Seller 2 say about delivery?” — let the agent answer or replay the voice clip.
+
+7. 💬 Chat + Voice Hybrid Agent
+Add a chat interface to complement voice commands.
+
+E.g., User can type “compare prices again” or “email just top 2”.
+
+8. 🔐 Trust Score Analysis
+Give each seller a trust score based on:
+
+Their tone (analyzed from the voice)
+
+Delivery time consistency
+
+Past reviews (mocked or from fake dataset)
+
+9. 🧩 GPT-Fusion Prompting (OmniPrompt)
+Create a unified prompt system that takes:
+
+📸 Image (optional — e.g., product photo)
+
+🔊 Voice (user's preferences)
+
+📝 Text (past purchase behavior)
+
+→ And gives tailored suggestions.
+
+10. 📡 OmniWebhook™ Integration
+Use OmniDimension webhook to:
+
+Log data to Google Sheets
+
+Send email with SendGrid / Gmail API
+
+Call a Telegram Bot or WhatsApp Message (bonus!)
+
+🎨 Bonus: Visual/UX Delight
+Glassmorphism + Soft UI + animated avatars for sellers
+
+Voice waveform animation during user input
+
+Confetti animation when best deal is found 🥳
+
